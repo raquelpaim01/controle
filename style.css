@@ -1,0 +1,38 @@
+.bgcolor{ 
+    background-color:#E6E6FA ;
+    } 
+
+.colortr{
+    text-align: "center";
+    background-color: #A9A9A9;
+}    
+.imagem{
+    position: relative;
+    height: 98vh;
+    width: 98vw;
+    background-image: url("http://localhost/estoque/quemsabe.jpg") ;
+    background-size: cover;
+}
+.quadrinhoarredondadoexemplo {
+    background: #B0C4DE;
+    border: 1px dashed #bbb;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    text-align: center;
+    display: block;
+    border-radius: 10px;
+   -moz-border-radius: 10px;
+   -webkit-border-radius: 10px;
+    text-decoration: none
+}
+.estilo {
+    color :black;
+font-family: 'Times New Roman', Times, serif;
+margin:0 auto;
+width:500px;
+background: #fbfbfb;
+position:relative;
+top:50px;
+border:1px solid #262626;
+}
