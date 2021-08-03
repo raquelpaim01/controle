@@ -1,35 +1,55 @@
-<!DOCTYPE html>
-    <html>
+<?php
+
+$servidor  = 'localhost';
+$porta = '5432';
+$usuario = 'postgres';
+$senha = 'raquel';
+$banco = 'controle';
+$conexao = pg_connect("host=$servidor port=$porta dbname=$banco user=$usuario password=$senha");
+
+$id = $_GET['id'];
+
+$resultado = pg_query("select * from vw_fornecedor where id = $id");
+
+
+$pes = pg_fetch_array($resultado);
+
+
+
+?>
+
+<html>
     <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title> Cadastro de Mercadorias </title>
+    <title> Edição Fornecedor </title>
     <link rel="stylesheet" href="style.css">
     </head>
     <body class = "bgcolor imagem">
-
+    <div class= imagem>
+            
     <meta = charset="utf-8"/>
+ 
  
     <div class=quadrinhoarredondadoexemplo>
         <a href="http://localhost/estoque/entrada_mercadoria.php"><b> Mercadorias &nbsp; </a>
         <a href="http://localhost/estoque/saida_mercadoria.php"><b> Vendas &nbsp; </a>
         <a href="http://localhost/estoque/cliente.php"><b> Cliente &nbsp; </a>
-        <a href="http://localhost/estoque/cadastro_mercadoria.php"><b> Cadastro de Produto &nbsp;  </a>
     </div>
 
     
-
-          <div class= imagem>
-              
+             
+     
    <div class= estilo>   
-       <form method="POST" action="dados_fornecedor.php">
+       <form method="POST" action="edicao_2.php?acao=update">
+       <input type="hidden" value="<?=$pes['id']?>" name="id">
         <center>
                 <br> <td>FORNECEDOR</td><br><br>
-         <table class = "table-responsive">
+         <table>
             
             <tr>
                 <td><b></br> Nome completo:</td>
                 <td>
-                </br><input type="text" maxlength ="100" minlength = "5"   name="nomecompleto" ></br>
+                </br> <input type="text" required="required" value="<?=$pes['razao_social']?>"  name="nomecompleto" />
                 </td>
                 </tr>
                     
@@ -37,20 +57,20 @@
                 <tr>
                     <td><b></br>  Telefone:</td>
                     <td>
-                    </br><input type="text" maxlength ="11" minlength = "11"  name="telefone"  pattern="[0-9]+$"></br>
+                    </br><input type="text" required="required" value="<?=$pes['telefone']?>"   name="telefone"  pattern="[0-9]+$"></br>
                     </td>
                 </tr>
                     <tr>
                         <td><b></br>E-mail:</td>
                         <td>
-                        </br><input type="email"  class="input-text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                        </br><input type="email"  class="input-text" required="required" value="<?=$pes['email']?>" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
                         </td>
                     </tr>
                 <tr>
                         <td><b></br>  Pessoa: </td>
                             <td></br>
                             <select  name="pessoa">
-                            <option value="fisica">Física</option>
+                            <option value="fisica" >Física</option>
                             <option value="juridica">Jurídica</option>
                             <label>Infome o número:</label>
                             <input type="text" maxlength ="14" minlength = "9"  name="informeonumero" 
@@ -60,35 +80,35 @@
                  <tr>
                         <td><b></br>Rua:</td>
                         <td>
-                        </br><input type="text" maxlength ="50" minlength = "5"   name="rua" pattern="[a-z\s]+$"/></br>
+                        </br><input type="text" maxlength ="50" minlength = "5"  required="required" value="<?=$pes['rua']?>" name="rua" pattern="[a-z\s]+$"/></br>
                         </td>
                 </tr>
 
                  <tr>
                         <td><b></br> Número:</td>
                         <td></br>
-                        <input type="text" maxlength ="4" minlength = "1"   name="numero" pattern="[0-9]+$"/></br>
+                        <input type="text" maxlength ="4" minlength = "1" required="required" value="<?=$pes['numero']?>"  name="numero" pattern="[0-9]+$"/></br>
                         </td>
                 </tr>
 
                 <tr>
                     <td><b></br>  Bairro:</td>
                         <td></br>
-                        <input type="text" maxlength ="50" minlength = "5"   name="bairro" pattern="[a-z\s]+$"/></br>
+                        <input type="text" maxlength ="50" minlength = "5" required="required" value="<?=$pes['bairro']?>"   name="bairro" pattern="[a-z\s]+$"/></br>
                         </td>
                         </tr>
 
                 <tr>
                         <td><b></br> CEP:</td>
                         <td></br>
-                        <input type="text" maxlength ="8" minlength = "8"   name="cep" pattern="[0-9]+$"/></br>
+                        <input type="text" maxlength ="8" minlength = "8" required="required" value="<?=$pes['cep']?>"  name="cep" pattern="[0-9]+$"/></br>
                         </td>
                 </tr>
 
                 <tr>
                     <td><b></br>  Cidade:</td>
                         <td>
-                        </br><input type="text" maxlength ="100" minlength = "5"   name="cidade" pattern="[a-z\s]+$"/></br>
+                        </br><input type="text" maxlength ="100" minlength = "5" required="required" value="<?=$pes['cidade']?>"   name="cidade" pattern="[a-z\s]+$"/></br>
                         </td>
                 </tr>
                 <tr>
@@ -132,16 +152,14 @@
                            <input type="submit" value="Cadastrar" name = "cadastrar">
                            </td></div>
        
-                       <td><div align = "center"></br>
-                           <input type="submit" value="Consultar" name = "consultar">
-                           </td> </div>
-       
                        
                       
                    
                </tr>
                
-            
+               </br><a href="http://localhost/estoque/consulta_fornecedor.php"><b> Consulta Cadastro  </a>
+    
+    </div>
         
     </div>
     </table>
@@ -152,5 +170,4 @@
 </body>
 
 </html>
-
 

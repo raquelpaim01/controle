@@ -1,28 +1,72 @@
 
 <!DOCTYPE html>
-    <html>
-    <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title> Cadastro de Mercadorias </title>
-    <link rel="stylesheet" href="style.css">
-    </head>
-    <body class = "bgcolor imagem">
 
+<html>
+<head>
+    <title>Nota fiscal</title>
+</head>
+
+<body>
+    
     <meta = charset="utf-8"/>
-    
-    
 
         <div class=quadrinhoarredondadoexemplo>
                 <a href="http://localhost/estoque/saida_mercadoria.php"><b> Vendas &nbsp;  </a>
-                <a href="http://localhost/estoque/fornecedor.php"><b> Fornecedor &nbsp; </a>
-                <a href="http://localhost/estoque/cliente.php"><b> Cliente &nbsp;  </a>
+                <a href="http://localhost/estoque/fornecedor.html"><b> Fornecedor &nbsp; </a>
+                <a href="http://localhost/estoque/cliente.html"><b> Cliente &nbsp;  </a>
                 <a href="http://localhost/estoque/cadastro_mercadoria.php"><b> Cadastro de Produto &nbsp;  </a>
                 <a href="http://localhost/estoque/quantidade_valor.php"><b> Entrada de mercadoria &nbsp;  </a>
 
 
 
         </div>
-        
+
+         <style tyle="text/css">
+            div.imagem {
+                
+                margin:0 auto;
+                width: 100%;
+                padding-block-end: 50%;
+                position: fixed;
+                background-image: url('imagem/quemsabe.jpg');
+            } 
+
+             </style>
+
+            <style tyle="text/css">
+                 div.quadrinhoarredondadoexemplo {
+                 background: #B0C4DE;
+                 font-family: 'Times New Roman', Times, serif;
+                 border: 1px dashed #bbb;
+                 margin-top: 10px;
+                 margin-bottom: 10px;
+                 padding: 5px;
+                 text-align: center;
+                 display: block;
+                 border-radius: 10px;
+                -moz-border-radius: 10px;
+                -webkit-border-radius: 10px;
+             }
+         
+             .quadrinhoarredondadoexemplo a{
+                 text-decoration: none;
+             }
+             </style>
+
+   
+
+        <style tyle="text/css">
+            div.estilo {
+                color :black;
+    font-family: 'Times New Roman', Times, serif;
+    margin:0 auto;
+    width:500px;
+    background: #fbfbfb;
+    position:relative;
+    top:50px;
+    border:1px solid #262626;
+            }
+            </style>
     <div class = imagem>
     <div class = estilo>
             <form action="dados_entrada.php" method="POST">

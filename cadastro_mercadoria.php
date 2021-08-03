@@ -11,8 +11,8 @@
         <div class=quadrinhoarredondadoexemplo>
                 <a href="http://localhost/estoque/entrada_mercadoria.php"><b> Mercadorias &nbsp; </a>
                 <a href="http://localhost/estoque/saida_mercadoria.php"><b> Vendas &nbsp;  </a>
-                <a href="http://localhost/estoque/fornecedor.html"><b> Fornecedor &nbsp; </a>
-                <a href="http://localhost/estoque/cliente.html"><b> Cliente &nbsp;  </a>
+                <a href="http://localhost/estoque/fornecedor.php"><b> Fornecedor &nbsp; </a>
+                <a href="http://localhost/estoque/cliente.php"><b> Cliente &nbsp;  </a>
         </div>
 <form action="dados_produto.php" method="POST">
   <div class = "estilo">

@@ -100,13 +100,6 @@ create view vw_cliente as select * from cliente;
 create unique index consulta on cliente (id);
 create unique index vendas on venda (id);
 create unique index fornecedores on fornecedor (id);
-
-select * from entrada;
-update entrada e set cfop = '0551' where e.fornecedor_id in(
-	select f.id from entrada e join fornecedor f on f.id = e.fornecedor_id
-	where f.razao_social = 'Rosane Paim');
 select * from fornecedor;
-delete from entrada e where e.fornecedor_id in(
-select f.id from entrada e
-join fornecedor f on f.id = e.fornecedor_id
-where f.razao_social = 'Geneci');
+
+
